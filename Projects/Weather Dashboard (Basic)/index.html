@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f0f2f5;
+        padding: 20px;
+      }
+      select,
+      button {
+        padding: 8px 12px;
+        margin: 10px;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weather Dashboard</h1>
+
+    <label for="city">Choose City: </label>
+    <select id="city">
+      <option value="dhaka">Dhaka</option>
+      <option value="newyork">New York</option>
+      <option value="london">London</option>
+      <option value="tokyo">Tokyo</option>
+    </select>
+    <button onclick="showWeather()">Show Weather</button>
+
+    <div id="weatherCard" class="card">
+      <h2 id="cityName">--</h2>
+      <p><b>Temperature:</b> <span id="temp">--</span>°C</p>
+      <p><b>Condition:</b> <span id="condition">--</span></p>
+    </div>
+
+    <script>
+      const weatherData = [
+        { city: "dhaka", name: "Dhaka", temp: 32, condition: "Sunny" },
+        { city: "newyork", name: "New York", temp: 18, condition: "Cloudy" },
+        { city: "london", name: "London", temp: 12, condition: "Rainy" },
+        { city: "tokyo", name: "Tokyo", temp: 25, condition: "Clear" },
+      ];
+
+      function showWeather() {
+        let city = document.getElementById("city").value;
+        let weather = weatherData.find((w) => w.city === city);
+
+        if (weather) {
+          document.getElementById("cityName").textContent = weather.name;
+          document.getElementById("temp").textContent = weather.temp;
+          document.getElementById("condition").textContent = weather.condition;
+        }
+      }
+    </script>
+  </body>
+</html>

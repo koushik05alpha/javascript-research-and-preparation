@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Random Background Color</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="changeColor()">Change Background</button>
+
+  <script>
+    const colors = ["#EF4444", "#F59E0B", "#10B981", "#3B82F6", "#8B5CF6", "#EC4899"];
+
+    function changeColor() {
+      const random = Math.floor(Math.random() * colors.length);
+      document.body.style.background = colors[random];
+    }
+  </script>
+</body>
+</html>
